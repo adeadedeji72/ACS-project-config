@@ -56,7 +56,7 @@ sudo mkdir /etc/ssl/private
 
 sudo chmod 700 /etc/ssl/private
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ACS.key -out /etc/ssl/certs/ACS.crt
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/masterclass.key -out /etc/ssl/certs/masterclass.crt
 
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 ```
@@ -100,7 +100,7 @@ yum install -y  ./build/amazon-efs-utils*rpm
 ```
 yum install -y mod_ssl
 
-openssl req -newkey rsa:2048 -nodes -keyout /etc/pki/tls/private/ACS.key -x509 -days 365 -out /etc/pki/tls/certs/ACS.crt
+openssl req -newkey rsa:2048 -nodes -keyout /etc/pki/tls/private/masterclass.key -x509 -days 365 -out /etc/pki/tls/certs/masterclass.crt
 
 vi /etc/httpd/conf.d/ssl.conf
 ```
@@ -109,7 +109,7 @@ vi /etc/httpd/conf.d/ssl.conf
 
 
 # Login into the RDS instnace  and create  database for wordpress and tooling wordpress and tooling database
-mysql -h acs-database.cdqpbjkethv0.us-east-1.rds.amazonaws.com -u ACSadmin -p 
+mysql -h masterclass-database.crdoaquksbot.us-east-1.rds.amazonaws.com -u admin -p 
 
 CREATE DATABASE toolingdb;
 CREATE DATABASE wordpressdb;
